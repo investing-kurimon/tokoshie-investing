@@ -138,15 +138,16 @@
 
         /* =================================================================
         AD SPACE: SMART RESPONSIVE DEFINITIONS
-        - 広告の意図（完全表現）を潰さず、配信ロジックへ美しく表示できるサイズを指示
+        - max-width: 100%により、スマホ表示でのビューポート超過（横ずれ）を物理的に完全防止
         ================================================================= -->
         .tokoshie-ad-unit {
             display: block;
             width: 100%;
-            height: 90px; /* デフォルトのスマートな横長サイズ */
+            max-width: 100%;
+            height: 90px; /* スマホビューポートに最適化されたバナー高 */
         }
         @media(min-width: 500px) {
-            .tokoshie-ad-unit { width: 100%; height: 120px; } /* PC・タブレット環境で窮屈さを与えない適正幅 */
+            .tokoshie-ad-unit { width: 100%; max-width: 100%; height: 120px; }
         }
     </style>
 </head>
@@ -173,7 +174,7 @@
             <br>
             資本主義は「差」がなければ動かないシステムだ。先物トレードもまた相場の極値と極値の間を揺れ動く際の「差」を利用する。揺れ動きのリズムがサイクルであり、それは市場に現出した時間の支配力である。サイクルは繰り返す。繰り返すことで市場は延々と命を繋ぐ。この「極値・サイクル」の再現性がトレーダーの飯の種となる。<br>
             <br>
-            いくらアルゴリズムが発達しても・・・「<b>平均からの乖離と平均への回帰を繰り返す</b> Jockey-trainer 」，この相場の本質は変わらない。当サイトではこの本質をめぐって考察を重ねていく。<br>
+            いくらアルゴリズムが発達しても・・・「<b>平均からの乖離と平均への回帰を繰り返す</b>」、この相場の本質は変わらない。当サイトではこの本質をめぐって考察を重ねていく。<br>
             <br>            
         </p>
 
@@ -185,7 +186,6 @@
 
         <!-- =================================================================
         AD SPACE: IN-ARTICLE AD 1
-        - 広告主のメッセージを五体満足で届けつつ、美しく調和させる
         ================================================================= -->
         <div class="ad-viewport-wrapper" style="margin: 40px auto; max-width: 100%; opacity: 0.55; filter: grayscale(100%) brightness(0.75) contrast(1.0); transition: opacity 0.3s, filter 0.3s;" onmouseover="this.style.opacity='0.9'; this.style.filter='grayscale(0%) brightness(1.0)'" onmouseout="this.style.opacity='0.55'; this.style.filter='grayscale(100%) brightness(0.75) contrast(1.0)'">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
@@ -239,7 +239,7 @@
                     <br>
                     平穏な日常を生きる人々から見れば、きっと先物トレードはギャンブルにしか見えない。<br>
                     <br>
-                    画面の数字に一喜一憂し、莫大なリスクに身さらし、時に手痛い損失を被りながらも再びマーケットへ向かうトレーダーたち。<br>
+                    画面の数字に一喜一憂し、莫大なリスクに身をさらし、時に手痛い損失を被りながらも再びマーケットへ向かうトレーダーたち。<br>
                     <br>
                     理解しがたい狂気、射幸心、あるいは単に安易な金儲け願望に映るだろう。<br>
                     <br>
@@ -288,7 +288,6 @@
 
                 <!-- =================================================================
                 AD SPACE: IN-ARTICLE AD 2
-                - クラス名「tokoshie-ad-unit」を適用し、CSS側からGoogle側へ適正サイズを事前伝達
                 ================================================================= -->
                 <div class="ad-viewport-wrapper" style="margin: 40px auto; max-width: 100%; opacity: 0.55; filter: grayscale(100%) brightness(0.75) contrast(1.0); transition: opacity 0.3s, filter 0.3s;" onmouseover="this.style.opacity='0.9'; this.style.filter='grayscale(0%) brightness(1.0)'" onmouseout="this.style.opacity='0.55'; this.style.filter='grayscale(100%) brightness(0.75) contrast(1.0)'">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
