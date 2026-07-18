@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = """<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +12,9 @@
             --text-sub: #868e96;
             --accent: #4ade80; /* 生命線（ミドルバンド）を想起させる清らかなグリーン */
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -19,14 +22,15 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            box-sizing: border-box;
         }
         .container {
             max-width: 750px;
-            padding: 40px 20px;
+            padding: 80px 20px;
             box-sizing: border-box;
         }
         .logo-area {
@@ -52,7 +56,7 @@
             border: 0;
             height: 1px;
             background: linear-gradient(to right, transparent, var(--text-sub), transparent);
-            margin: 40px auto;
+            margin: 50px auto;
             width: 60%;
         }
         p {
@@ -68,11 +72,74 @@
             font-style: italic;
             letter-spacing: 0.08em;
             line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        /* ナビゲーションエリアのスタイル */
+        .site-nav {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .nav-item {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.3s, border-color 0.3s;
+            padding-bottom: 6px;
+            border-bottom: 1px solid transparent;
+        }
+        .nav-item:hover {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* 記事セクションのスタイル */
+        .article-section {
+            margin-top: 100px;
+            text-align: left;
+            border-top: 1px solid #1f222b;
+            padding-top: 80px;
+        }
+        .article-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .article-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+        .article-body {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+        }
+        .article-quote {
+            font-style: italic;
+            color: var(--text-sub);
+            padding-left: 15px;
+            border-left: 2px solid #374151;
+            margin: 25px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- トップメインエリア -->
         <div class="logo-area">
             <h1>Time Reigns the Markets</h1>
             <div class="subtitle">Not "They"</div>
@@ -108,7 +175,7 @@
             いくらアルゴリズムが発達しても<br>
             「<b>平均からの乖離と平均への回帰を繰り返す</b>」<br>
             この相場の本質は変わらない。<br>
-            当サイトではそこらあたりをめぐって考察を重ねていく。<br>
+            当サイトではこの本質をめぐって考察を重ねていく。<br>
             <br>           
         </p>
 
@@ -117,6 +184,72 @@
         <div class="quote">
             "Anyone Who Knows What the Market Is (Will Understand)"
         </div>
+
+        <!-- ナビゲーション -->
+        <nav class="site-nav">
+            <a href="#essays" class="nav-item">ESSAYS</a>
+            <a href="#indicators" class="nav-item">INDICATORS</a>
+            <a href="#philosophy" class="nav-item">PHILOSOPHY</a>
+        </nav>
+
+        <!-- 記事セクション -->
+        <section id="essays" class="article-section">
+            <h2 class="article-title">『Anyone Who Knows What the Market Is』に込めた思想</h2>
+            
+            <div class="article-body">
+                <div class="article-subtitle">――それは、外側からは決して見えない熱量</div>
+                <p>
+                    リニューアルしたサイトの最下部に、私は一つの言葉を置いた。<br>
+                    <br>
+                    <span style="font-style: italic; color: var(--text-sub);">"Anyone Who Knows What the Market Is (Will Understand)"</span><br>
+                    <br>
+                    元ネタに気づいた方もいるかもしれない。1964年にアイマ・トーマスが歌い、後に多くのアーティストにカバーされたソウルミュージックの名曲『Anyone Who Knows What Love Is (Will Understand)』の歌詞をサンプリングしたものだ。<br>
+                    <br>
+                    原曲で彼女はこう歌う。
+                </p>
+                <div class="article-quote">
+                    「あの人はあなたを裏切る、嘘をつく、利用されているだけだと周りは言う。でも、本当に『愛』が何たるかを知っている人なら、私がなぜ彼のもとに留まり続けるのかを理解してくれるはずだ」
+                </div>
+                <p>
+                    世間から見れば、愚かで、狂気じみていて、今すぐやめるべき関係。それでも、当事者にしか見えない絆と真実がそこにはある。
+                </p>
+
+                <div class="article-subtitle">孤独な世界の「共犯者」たちへ</div>
+                <p>
+                    この歌を聴いたとき、私は強烈に「相場」を、保存された記憶のなかの「トレーダーの孤独」を連想せざるを得なかった。<br>
+                    <br>
+                    平穏な日常を生きる人々から見れば、画面の数字に一喜一憂し、莫大なリスクに身をさらし、時に手痛い損失を被りながらも再びマーケットへ向かうトレーダーの姿は、理解しがたい狂気、あるいは単なるギャンブルに映るだろう。<br>
+                    <br>
+                    「なぜそんな危険なことをするのか」<br>
+                    「普通に働いたほうが確実ではないか」<br>
+                    <br>
+                    周囲の冷ややかな視線や、親切心からの忠告。それらを受け流しながら、我々は今日も静かにチャートを開く。<br>
+                    <br>
+                    なぜか。<br>
+                    我々は知ってしまっているからだ。<br>
+                    <br>
+                    「平均からの乖離と平均への回帰」が描く美しいサイクルを。欲と恐怖のせめぎ合いの果てに、一瞬だけ現出する完璧な「極値」を。核心にある規律（ルール）を徹底的に守り抜いた先にしか存在しない、あの静謐な歓喜の瞬間を。<br>
+                    <br>
+                    市場が持つ本当の恐ろしさと、それを凌駕する絶対的な美しさ。それは、実際に身銭を切り、自らの精神を極限まで削りながらマーケットという深淵を覗き込んだ者にしか理解できない。
+                </p>
+
+                <div class="article-subtitle">言い訳はいらない</div>
+                <p>
+                    周囲に理解してもらう必要はない。この世界の本当の姿を知る者だけが、静かに頷き合えればそれでいい。<br>
+                    <br>
+                    <span style="font-style: italic; color: var(--text-sub);">"Anyone Who Knows What the Market Is (Will Understand)"</span><br>
+                    （市場が何たるかを知る者だけが、理解する）<br>
+                    <br>
+                    このサイトは、そんな「知ってしまった」人々のための場所である。外側の雑音を遮断し、時間と貨幣が支配するこの美しい秩序のなかで、ともに淡々と飯の種を収穫していこう。
+                </p>
+            </div>
+        </section>
     </div>
 </body>
 </html>
+"""
+
+with open("index-v2.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(len(html_content.splitlines()))
