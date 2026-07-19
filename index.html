@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Time Reigns the Markets - tokoshie</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+
+    <!-- AdSenseの読み込みは head 内で一度だけ行う（重複読み込みは不安定化・no-fillの一因になり得ます） -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
+
     <style>
         :root {
             --bg-color: #0d0e12;
+            --panel-color: #14161c; /* 広告枠などに使う、背景よりわずかに明るいパネル色 */
             --text-main: #d1d5db;
             --text-sub: #868e96;
             --accent: #4ade80; /* 生命線（ミドルバンド）を想起させる清らかなグリーン */
+            --border-color: #1f222b;
         }
         html {
             scroll-behavior: smooth;
@@ -74,7 +80,7 @@
             line-height: 1.8;
             margin-bottom: 30px;
         }
-        
+
         /* ナビゲーションエリアのスタイル */
         .site-nav {
             margin-top: 40px;
@@ -101,7 +107,7 @@
         .article-section {
             margin-top: 100px;
             text-align: left;
-            border-top: 1px solid #1f222b;
+            border-top: 1px solid var(--border-color);
             padding-top: 80px;
         }
         .article-title {
@@ -137,17 +143,38 @@
         }
 
         /* =================================================================
-        AD SPACE: SMART RESPONSIVE DEFINITIONS
-        - max-width: 100%により、スマホ表示でのビューポート超過（横ずれ）を物理的に完全防止
+        AD SPACE: 額縁（フレーム）のみをサイトのトーンに合わせる
+        重要：広告本体(<ins>)には opacity / filter / transform 等を一切適用しない。
+        AdSenseの規約で広告の見た目を変更・偽装することは禁止されており、
+        違反すると広告が配信されなくなる(no-fill)ことがあるため。
+        ここでは「外側の額縁」だけを馴染ませ、広告自体はそのまま表示する。
         ================================================================= -->
-        .tokoshie-ad-unit {
+        .ad-frame {
+            margin: 50px auto;
+            max-width: 100%;
+            width: 100%;
+            background-color: var(--panel-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 18px 0 24px 0;
+            box-sizing: border-box;
+        }
+        .ad-frame-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--text-sub);
+            text-align: center;
+            margin: 0 0 14px 0;
+            text-transform: uppercase;
+        }
+        /* 広告そのもののラッパー。幅の暴走（横スクロール）だけ防ぎ、
+           高さやopacity等の見た目には触れない */
+        .ad-slot {
             display: block;
             width: 100%;
             max-width: 100%;
-            height: 90px; /* スマホビューポートに最適化されたバナー高 */
-        }
-        @media(min-width: 500px) {
-            .tokoshie-ad-unit { width: 100%; max-width: 100%; height: 120px; }
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -158,7 +185,7 @@
             <h1>Time Reigns the Markets</h1>
             <div class="subtitle">Not "They"</div>
         </div>
-        
+
         <hr>
 
         <p>
@@ -175,11 +202,11 @@
             資本主義は「差」がなければ動かないシステムだ。先物トレードもまた相場の極値と極値の間を揺れ動く際の「差」を利用する。揺れ動きのリズムがサイクルであり、それは市場に現出した時間の支配力である。サイクルは繰り返す。繰り返すことで市場は延々と命を繋ぐ。この「極値・サイクル」の再現性がトレーダーの飯の種となる。<br>
             <br>
             いくらアルゴリズムが発達しても・・・「<b>平均からの乖離と平均への回帰を繰り返す</b>」、この相場の本質は変わらない。当サイトではこの本質をめぐって考察を重ねていく。<br>
-            <br>            
+            <br>
         </p>
 
         <hr>
-        
+
         <div class="quote">
             "Anyone Who Knows What the Market Is (Will Understand)"
         </div>
@@ -187,9 +214,10 @@
         <!-- =================================================================
         AD SPACE: IN-ARTICLE AD 1
         ================================================================= -->
-        <div class="ad-viewport-wrapper" style="margin: 40px auto; max-width: 100%; opacity: 0.55; filter: grayscale(100%) brightness(0.75) contrast(1.0); transition: opacity 0.3s, filter 0.3s;" onmouseover="this.style.opacity='0.9'; this.style.filter='grayscale(0%) brightness(1.0)'" onmouseout="this.style.opacity='0.55'; this.style.filter='grayscale(100%) brightness(0.75) contrast(1.0)'">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle tokoshie-ad-unit"
+        <div class="ad-frame">
+            <div class="ad-frame-label">Sponsored</div>
+            <ins class="adsbygoogle ad-slot"
+                 style="display:block"
                  data-ad-layout="in-article"
                  data-ad-format="fluid"
                  data-ad-client="ca-pub-2042298337392890"
@@ -209,7 +237,7 @@
         <!-- 記事セクション -->
         <section id="essays" class="article-section">
             <h2 class="article-title">『Anyone Who Knows What the Market Is』に込めた思い</h2>
-            
+
             <div class="article-body">
                 <div class="article-subtitle">――それは、外側からは決して見えない熱量</div>
                 <p>
@@ -247,7 +275,6 @@
                     「普通に働いたほうが確実ではないか」<br>
                     <br>
                     周囲の冷ややかな視線、あるいは親切心からの忠告。<br>
-                    <!-- 中略（オリジナルの文章構造を完全維持） -->
                     それらを受け流しながら、我々は今日も静かにチャート向き合う。<br>
                     <br>
                     なぜか。<br>
@@ -289,9 +316,10 @@
                 <!-- =================================================================
                 AD SPACE: IN-ARTICLE AD 2
                 ================================================================= -->
-                <div class="ad-viewport-wrapper" style="margin: 40px auto; max-width: 100%; opacity: 0.55; filter: grayscale(100%) brightness(0.75) contrast(1.0); transition: opacity 0.3s, filter 0.3s;" onmouseover="this.style.opacity='0.9'; this.style.filter='grayscale(0%) brightness(1.0)'" onmouseout="this.style.opacity='0.55'; this.style.filter='grayscale(100%) brightness(0.75) contrast(1.0)'">
-                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
-                    <ins class="adsbygoogle tokoshie-ad-unit"
+                <div class="ad-frame">
+                    <div class="ad-frame-label">Sponsored</div>
+                    <ins class="adsbygoogle ad-slot"
+                         style="display:block"
                          data-ad-layout="in-article"
                          data-ad-format="fluid"
                          data-ad-client="ca-pub-2042298337392890"
