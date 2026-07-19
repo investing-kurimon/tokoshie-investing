@@ -21,6 +21,10 @@
         html {
             scroll-behavior: smooth;
         }
+        html, body {
+            overflow-x: hidden; /* 万一どの要素かが幅を超えても、ページ全体の横スクロールを防ぐ安全策 */
+            width: 100%;
+        }
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
@@ -150,31 +154,50 @@
         ここでは「外側の額縁」だけを馴染ませ、広告自体はそのまま表示する。
         ================================================================= -->
         .ad-frame {
-            margin: 50px auto;
+            margin: 60px auto;
             max-width: 100%;
             width: 100%;
-            background-color: var(--panel-color);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 18px 0 24px 0;
-            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .ad-frame-label {
             font-family: 'Cinzel', serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.3em;
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
             color: var(--text-sub);
             text-align: center;
             margin: 0 0 14px 0;
             text-transform: uppercase;
+            opacity: 0.7;
+        }
+        /* 広告を収める「額縁」。白いクリエイティブが直接ページに触れないよう、
+           マット紙のような余白と、控えめな縁取り・角丸で“展示物”らしく見せる。
+           広告自体（.ad-slot内の<ins>）には一切の加工を加えない。 */
+        .ad-mat {
+            width: 100%;
+            max-width: 380px; /* 幅を絞ることで、記事内広告のクリエイティブも自動的に小さめのものが選ばれやすくなる */
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            overflow: hidden; /* Google側が挿入する広告が枠より広くても、ここで断ち切ってはみ出しを防ぐ */
         }
         /* 広告そのもののラッパー。幅の暴走（横スクロール）だけ防ぎ、
            高さやopacity等の見た目には触れない */
         .ad-slot {
             display: block;
-            width: 100%;
-            max-width: 100%;
+            width: 100% !important;
+            max-width: 100% !important;
             margin: 0 auto;
+        }
+        /* Googleのスクリプトが動的に挿入するiframeは、インラインstyleで幅を
+           指定してくることがあるため、!important で確実にコンテナ幅へ従わせる */
+        .ad-slot iframe {
+            max-width: 100% !important;
+            width: 100% !important;
         }
     </style>
 </head>
@@ -216,15 +239,17 @@
         ================================================================= -->
         <div class="ad-frame">
             <div class="ad-frame-label">Sponsored</div>
-            <ins class="adsbygoogle ad-slot"
-                 style="display:block"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-2042298337392890"
-                 data-ad-slot="7802200448"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div class="ad-mat">
+                <ins class="adsbygoogle ad-slot"
+                     style="display:block"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-2042298337392890"
+                     data-ad-slot="7802200448"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
         </div>
 
         <!-- ナビゲーション -->
@@ -317,15 +342,17 @@
                 ================================================================= -->
                 <div class="ad-frame">
                     <div class="ad-frame-label">Sponsored</div>
-                    <ins class="adsbygoogle ad-slot"
-                         style="display:block"
-                         data-ad-layout="in-article"
-                         data-ad-format="fluid"
-                         data-ad-client="ca-pub-2042298337392890"
-                         data-ad-slot="7802200448"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                    <div class="ad-mat">
+                        <ins class="adsbygoogle ad-slot"
+                             style="display:block"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
+                             data-ad-client="ca-pub-2042298337392890"
+                             data-ad-slot="7802200448"></ins>
+                        <script>
+                             (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
                 </div>
             </div>
         </section>
