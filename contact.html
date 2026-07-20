@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - tokoshie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0e12;
+            --panel-color: #14161c;
+            --text-main: #d1d5db;
+            --text-sub: #868e96;
+            --accent: #4ade80;
+            --border-color: #1f222b;
+        }
+        html { scroll-behavior: smooth; }
+        html, body { overflow-x: hidden; width: 100%; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Noto Serif JP', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 560px;
+            width: 100%;
+            padding: 80px 20px;
+            box-sizing: border-box;
+        }
+        .logo-area { margin-bottom: 40px; text-align: center; }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+        }
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .intro {
+            font-size: 0.9rem;
+            line-height: 2;
+            letter-spacing: 0.08em;
+            color: var(--text-sub);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        label {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.95rem;
+            padding: 12px 14px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.8;
+        }
+        .required {
+            color: var(--accent);
+            font-size: 0.75rem;
+            margin-left: 6px;
+        }
+        button {
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: var(--bg-color);
+            background-color: var(--accent);
+            border: none;
+            border-radius: 4px;
+            padding: 16px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        button:hover { opacity: 0.85; }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--text-sub);
+            text-decoration: none;
+        }
+        .back-link:hover { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-area">
+            <h1>Contact</h1>
+            <div class="subtitle">お問い合わせ</div>
+        </div>
+
+        <p class="intro">
+            コアメン道場（サービス提供中）、ならびに<br>
+            生命線BBトレード解説動画＆専用道場（制作中）に<br>
+            関するお問い合わせは、こちらのフォームからお願いします。<br>
+            通常3営業日以内にご返信します。
+        </p>
+
+        <!--
+            ▼▼▼ 運用開始前に、以下の action の値を
+            Formspreeで発行された実際のエンドポイントURLに差し替えてください ▼▼▼
+            例: https://formspree.io/f/abcdwxyz
+        -->
+        <form action="https://formspree.io/f/mjgnreor" method="POST">
+
+            <!-- スパム対策：ハニーポット（人間には見えない罠フィールド。ボットが埋めてしまうと送信を弾く） -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+            <!-- 送信後、この名前でメール件名の先頭に自動で付与される -->
+            <input type="hidden" name="_subject" value="【tokoshie】お問い合わせ">
+
+            <!-- 送信完了後の遷移先 -->
+            <input type="hidden" name="_next" value="thanks.html">
+
+            <div>
+                <label for="name">お名前 <span class="required">必須</span></label>
+                <input type="text" id="name" name="お名前" required>
+            </div>
+
+            <div>
+                <label for="email">メールアドレス <span class="required">必須</span></label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+
+            <div>
+                <label for="category">お問い合わせ種別 <span class="required">必須</span></label>
+                <select id="category" name="お問い合わせ種別" required>
+                    <option value="">選択してください</option>
+                    <option value="コアメン道場について">コアメン道場について</option>
+                    <option value="生命線BBトレード動画講座について">生命線BBトレード動画講座について</option>
+                    <option value="その他">その他</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+                <textarea id="message" name="お問い合わせ内容" required></textarea>
+            </div>
+
+            <button type="submit">送信する</button>
+        </form>
+
+        <a href="services.html" class="back-link">&laquo; MEMBERSHIPページへ戻る</a>
+    </div>
+</body>
+</html>

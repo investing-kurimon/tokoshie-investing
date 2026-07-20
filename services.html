@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership - tokoshie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+
+    <!-- AdSenseの読み込みは head 内で一度だけ行う（重複読み込みは不安定化・no-fillの一因になり得ます） -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2042298337392890" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --bg-color: #0d0e12;
+            --panel-color: #14161c;
+            --text-main: #d1d5db;
+            --text-sub: #868e96;
+            --accent: #4ade80;
+            --border-color: #1f222b;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Noto Serif JP', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 750px;
+            padding: 80px 20px;
+            box-sizing: border-box;
+        }
+        .logo-area {
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 0.18em;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--text-sub), transparent);
+            margin: 50px auto;
+            width: 60%;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            letter-spacing: 0.12em;
+            color: var(--text-main);
+            margin-bottom: 40px;
+        }
+
+        .site-nav {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        .nav-item {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.3s, border-color 0.3s;
+            padding-bottom: 6px;
+            border-bottom: 1px solid transparent;
+        }
+        .nav-item:hover {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .service-section {
+            margin-top: 90px;
+            text-align: left;
+            border-top: 1px solid var(--border-color);
+            padding-top: 70px;
+        }
+        .service-title {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .service-badge {
+            display: block;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            margin-bottom: 35px;
+            text-transform: uppercase;
+        }
+        .service-body {
+            font-size: 0.95rem;
+            line-height: 2.2;
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+        }
+        .service-cta {
+            display: inline-block;
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            border-radius: 3px;
+            padding: 10px 24px;
+        }
+        .service-cta:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+        }
+        .cta-wrap {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .ad-frame {
+            margin: 60px auto;
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ad-frame-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
+            color: var(--text-sub);
+            text-align: center;
+            margin: 0 0 14px 0;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+        .ad-mat {
+            width: 100%;
+            max-width: 380px;
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 16px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+        .ad-slot {
+            display: block;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto;
+        }
+        .ad-slot iframe {
+            max-width: 100% !important;
+            width: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-area">
+            <h1>Membership</h1>
+            <div class="subtitle">A Quiet Circle</div>
+        </div>
+
+        <hr>
+
+        <p>
+            当サイトで書いていることを実践の場に落とし込む、2つの場を用意している。<br>
+            <br>
+            ひとつは、日々の相場と向き合い続けるための場。<br>
+            15分足ベースのクリモネサイクルトレードがメインだ。<br>
+            もうひとつは、資産形成を急ぎたい人のための場。<br>
+            こちらは新規募集をかける目前の段階だ。<br>
+            生命線BBトレードと名付けた1分足主体の手法に専念する。<br>
+        </p>
+
+        <!-- コアメン道場 -->
+        <section class="service-section">
+            <h2 class="service-title">Discordコアメン道場</h2>
+            <span class="service-badge">Existing Circle</span>
+            <div class="service-body">
+                <p>
+                    日経225先物の市況をリアルタイムで追いながら、<br>
+                    チャート分析、所感、クリモネ自身のイン・アウトのレポート、<br>
+                    ときには、このサイトで書いているような射程の深い話題も交えて配信中だ。<br>
+                    <br>
+                    ・扱うのは日経先物がメイン<br>
+                    ・サブで、SPXや金銀相場<br>
+                    ・毎週末、市況動画で中長期の相場観をお伝えしている<br>
+                    <br>
+                    少数精鋭で運営しているため、参加には確認フォームを設けている。<br>
+                    興味のある方は、まずお問い合わせを。
+                </p>
+                <div class="cta-wrap">
+                    <a href="contact.html" class="service-cta">お問い合わせ</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 生命線BBトレード動画講座 -->
+        <section class="service-section">
+            <h2 class="service-title">生命線BBトレード 動画講座</h2>
+            <span class="service-badge">Coming Soon</span>
+            <div class="service-body">
+                <p>
+                    1分足を使った短期トレード手法「生命線BBトレード」を、<br>
+                    全10回の動画講座として近日公開する。<br>
+                    同時に生命線BBトレードに特化したDiscordサブスクリプションも<br>
+                    始動させる。<br>
+                    <br>
+                    今後、むずかしい相場の到来を予感している。<br>
+                    エントロピーと人間の欲・恐怖という、当サイトで繰り返し書いてきた<br>
+                    相場観を、究極の短い時間単位に落とし込んでトレードする。<br>
+                    <br>
+                    愉快ではないか。相場は入れ子構造をしている。<br>
+                    他のタイムフレームの構造を転用できるのだ。<br>
+                    <br>
+                    動画は生徒とクリモネの対話形式で進行する。<br>
+                    詳細は公開まで今しばらく時間をいただく。
+                </p>
+            </div>
+        </section>
+
+        <!-- =================================================================
+        AD SPACE: IN-ARTICLE AD
+        ================================================================= -->
+        <div class="ad-frame">
+            <div class="ad-frame-label">Sponsored</div>
+            <div class="ad-mat">
+                <ins class="adsbygoogle ad-slot"
+                     style="display:block"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-2042298337392890"
+                     data-ad-slot="7802200448"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+
+        <nav class="site-nav">
+            <a href="index.html" class="nav-item">HOME</a>
+            <a href="index.html#essays" class="nav-item">ESSAYS</a>
+        </nav>
+    </div>
+</body>
+</html>
