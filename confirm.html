@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>確認フォーム - tokoshie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Noto+Serif+JP:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0e12;
+            --panel-color: #14161c;
+            --text-main: #d1d5db;
+            --text-sub: #868e96;
+            --accent: #4ade80;
+            --border-color: #1f222b;
+        }
+        html { scroll-behavior: smooth; }
+        html, body { overflow-x: hidden; width: 100%; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Noto Serif JP', serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 620px;
+            width: 100%;
+            padding: 80px 20px 100px;
+            box-sizing: border-box;
+        }
+        .logo-area { margin-bottom: 30px; text-align: center; }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.7rem;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+        }
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .intro {
+            font-size: 0.9rem;
+            line-height: 2;
+            letter-spacing: 0.06em;
+            color: var(--text-sub);
+            text-align: left;
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 50px;
+        }
+        .section-heading {
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin: 50px 0 24px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .section-heading:first-of-type { margin-top: 0; }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        label {
+            display: block;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            letter-spacing: 0.05em;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+        .hint {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            margin-top: 4px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: 'Noto Serif JP', serif;
+            font-size: 0.95rem;
+            padding: 12px 14px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+            line-height: 1.8;
+        }
+        .required {
+            color: var(--accent);
+            font-size: 0.72rem;
+            margin-left: 6px;
+        }
+        .checkbox-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background-color: var(--panel-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 14px 16px;
+        }
+        .checkbox-row input[type="checkbox"] {
+            margin-top: 4px;
+            accent-color: var(--accent);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+        .checkbox-row label {
+            margin-bottom: 0;
+            font-size: 0.88rem;
+        }
+        button {
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: var(--bg-color);
+            background-color: var(--accent);
+            border: none;
+            border-radius: 4px;
+            padding: 16px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        button:hover { opacity: 0.85; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-area">
+            <h1>Confirmation Form</h1>
+            <div class="subtitle">確認フォーム</div>
+        </div>
+
+        <div class="intro">
+            この確認フォームは、みなさん一人ひとりの実情（経験、資金力、モチベ、
+            本業との兼ね合いなど）を知り、できるだけきめ細かなサポートを行うための
+            事前聞き取りです。構えずに正直なところをお知らせください。<br><br>
+            通常3営業日以内にご連絡します。
+        </div>
+
+        <!-- ▼▼▼ 運用開始前に、Formspreeで発行された実際のエンドポイントURLに差し替えてください ▼▼▼ -->
+        <form action="https://formspree.io/f/xvzerbee" method="POST">
+
+            <!-- スパム対策：ハニーポット -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_subject" value="【tokoshie】配信板 確認フォーム">
+            <input type="hidden" name="_next" value="confirm-thanks.html">
+
+            <div class="section-heading">基本情報</div>
+
+            <div>
+                <label for="name">お名前 <span class="required">必須</span></label>
+                <input type="text" id="name" name="お名前" required>
+            </div>
+
+            <div>
+                <label for="email">メールアドレス <span class="required">必須</span></label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+
+            <div>
+                <label for="board">ご希望の板 <span class="required">必須</span></label>
+                <select id="board" name="ご希望の板" required>
+                    <option value="">選択してください</option>
+                    <option value="コアメン道場">コアメン道場</option>
+                    <option value="生命線BB道場">生命線BB道場</option>
+                    <option value="両方">両方</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="materials">動画講座・カスタムインジケーターはご購入済みですか？ <span class="required">必須</span></label>
+                <span class="hint">購入済みの方は、以下の「参加動機・姿勢」欄は簡潔で構いません。</span>
+                <select id="materials" name="教材購入状況" required>
+                    <option value="">選択してください</option>
+                    <option value="購入済み">購入済み</option>
+                    <option value="未購入">未購入</option>
+                    <option value="検討中">検討中</option>
+                </select>
+            </div>
+
+            <div class="section-heading">トレード経験・実務準備</div>
+
+            <div>
+                <label for="experience">先物・信用取引などレバレッジ商品の取引経験はありますか？ <span class="required">必須</span></label>
+                <select id="experience" name="レバレッジ商品の取引経験" required>
+                    <option value="">選択してください</option>
+                    <option value="経験あり">経験あり</option>
+                    <option value="現物のみ経験あり">現物のみ経験あり</option>
+                    <option value="未経験">未経験</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="account">日経225先物ミニ・マイクロの取引口座はお持ちですか？ <span class="required">必須</span></label>
+                <select id="account" name="先物口座の状況" required>
+                    <option value="">選択してください</option>
+                    <option value="開設済み">開設済み</option>
+                    <option value="これから開設予定">これから開設予定</option>
+                    <option value="未定">未定</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="frequency">普段、チャートやニュースをチェックする頻度を教えてください <span class="required">必須</span></label>
+                <select id="frequency" name="チェック頻度" required>
+                    <option value="">選択してください</option>
+                    <option value="毎日">毎日</option>
+                    <option value="週数回">週数回</option>
+                    <option value="週1回未満">週1回未満</option>
+                </select>
+            </div>
+
+            <div class="section-heading">参加動機・姿勢</div>
+
+            <div>
+                <label for="motivation">この講座・コミュニティに何を期待していますか？</label>
+                <textarea id="motivation" name="期待すること"></textarea>
+            </div>
+
+            <div>
+                <label for="engagement">コミュニティ内で他の会員とどのように関わりたいですか？</label>
+                <textarea id="engagement" name="コミュニティでの関わり方"></textarea>
+            </div>
+
+            <div class="section-heading">確認事項</div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="c1" name="余剰資金の確認" value="確認しました" required>
+                <label for="c1">トレードに使う資金は、当面使う予定のない余剰資金であることを確認できます</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="c2" name="投資助言でないことの理解" value="確認しました" required>
+                <label for="c2">当講座・コミュニティは投資助言ではなく、手法とその考え方を提供するものであることを理解しています</label>
+            </div>
+
+            <div class="checkbox-row">
+                <input type="checkbox" id="c3" name="損失可能性の理解" value="確認しました" required>
+                <label for="c3">損失が生じる可能性があることを理解した上でお申し込みします</label>
+            </div>
+
+            <button type="submit">送信する</button>
+        </form>
+    </div>
+</body>
+</html>
